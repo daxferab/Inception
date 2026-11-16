@@ -12,8 +12,21 @@ These services communicate over a private **Docker network** and persist data us
 ## Starting and Stopping the Project
 
 To set up the containers, one must follow these simple steps:
-- Paste a properly configured **secrets** folder in root
-- Add an **.env** file under the srcs/ folder
+- Paste a properly configured **secrets** folder in root with these non empty files:
+  - db_root_password.txt
+  - db_user_password.txt
+  - wp_admin_password.txt
+  - wp_user_password.txt
+- Add an **.env** file under the srcs/ folder with these variables:
+  - SQL_DATABASE
+  - SQL_USER
+  - LOGIN
+  - WP_URL
+  - WP_TITLE
+  - WP_ADMIN
+  - WP_ADMIN_EMAIL
+  - WP_USER
+  - WP_USER_EMAIL
 - Run `make` to set up the containers.
 	- This can also be done in two steps; `make build` to build the image and `make up` to start the container
 
@@ -28,7 +41,7 @@ To access the admin panel, simply go to `https://localhost/wp-admin` and use the
 
 ## Locate and manage credentials
 
-The credentials are located in the `secrets/` folder and the `.env` file
+The credentials are located in the `secrets/` folder and the `srcs/.env` file
 
 Environment variables can be added, removed or changed by editing the .env file
 
